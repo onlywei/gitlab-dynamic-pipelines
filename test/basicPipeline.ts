@@ -1,5 +1,5 @@
-import assert from 'node:assert/strict';
-import fs from 'node:fs';
+import { equal } from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import { toYAML, type Pipeline } from '../dist/index';
 
@@ -26,8 +26,8 @@ test('basic pipeline', () => {
 		},
 	};
 
-	assert.equal(
+	equal(
 		toYAML(basicPipeline),
-		fs.readFileSync('./test/basicPipeline.yaml', 'utf-8'),
+		readFileSync('./test/basicPipeline.yaml', 'utf-8'),
 	);
 });
