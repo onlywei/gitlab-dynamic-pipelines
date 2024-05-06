@@ -23,26 +23,26 @@ import fs from 'node:fs';
 import { GlobalKeywords, Pipeline } from 'gitlab-cicd-types';
 
 const globalKeywords: GlobalKeywords = {
-	workflow: {
-		name: 'Basic Pipeline',
-	},
-	stages: ['test', 'build'],
-	default: {
-		image: 'node:18',
-	},
+  workflow: {
+    name: 'Basic Pipeline',
+  },
+  stages: ['test', 'build'],
+  default: {
+    image: 'node:18',
+  },
 };
 
 // define all jobs in a separate object
 const jobs: Pipeline = {
-	job1: {
-		stage: 'test',
-		image: 'node:20.12.2',
-		script: ['echo "it works!'],
-	},
-	job2: {
-		stage: 'build',
-		script: ['echo "it has been built!'],
-	},
+  job1: {
+    stage: 'test',
+    image: 'node:20.12.2',
+    script: ['echo "it works!'],
+  },
+  job2: {
+    stage: 'build',
+    script: ['echo "it has been built!'],
+  },
 };
 
 fs.writeFileSync('.gitlab-ci.yml', YAML.stringify({ ...globalKeywords, ...jobs }));
