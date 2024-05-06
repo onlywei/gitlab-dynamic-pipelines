@@ -1,0 +1,25 @@
+{
+  "name": "gitlab-cicd-types",
+  "version": "0.1.0",
+  "description": "TypeScript definitions for creating dynamic Gitlab CI/CD pipelines.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onlywei/gitlab-cicd-types.git"
+  },
+  "keywords": [
+    "gitlab"
+  ],
+  "author": "Wei Wang <wei@fastmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/onlywei/gitlab-cicd-types/issues"
+  },
+  "homepage": "https://github.com/onlywei/gitlab-cicd-types#readme",
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}
