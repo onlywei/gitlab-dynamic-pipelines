@@ -13,7 +13,7 @@ npm install gitlab-dynamic-pipelines
 Use these types to build a basic pipeline like this:
 
 ```typescript
-import fs from 'node:fs';
+import { writeFileSync } from 'node:fs';
 import { toYAML, Pipeline } from 'gitlab-dynamic-pipelines';
 
 const pipeline: Pipeline = {
@@ -39,7 +39,7 @@ const pipeline: Pipeline = {
   },
 };
 
-fs.writeFileSync('.gitlab-ci.yml', toYAML(pipeline));
+writeFileSync('.gitlab-ci.yml', toYAML(pipeline));
 ```
 
 ### Why are `globalKeywords` and `jobs` separated into two different sub-objects?
