@@ -1,24 +1,20 @@
-import type { Need } from './Need.js';
-import type { Variables } from './Variables.js';
+import type { GitlabJobNeed } from './Need';
+import type { GitlabPipelineVariables } from './Variables';
 
-type ChangesRule = string[] | {
-	paths?: string[];
-	compare_to?: string;
-}
-
-type ExistsRule = string[] | {
-	paths: string[];
-	project?: string;
-	ref?: string;
-}
-
-export type Rule = {
+export type GitlabPipelineRule = {
 	allow_failure?: boolean;
-	changes?: ChangesRule;
-	exists?: ExistsRule;
+	changes?: string[] | {
+		paths?: string[];
+		compare_to?: string;
+	};
+	exists?: string[] | {
+		paths: string[];
+		project?: string;
+		ref?: string;
+	};
 	if?: string;
 	interruptible?: boolean;
-	needs?: Need[];
-	variables?: Variables;
+	needs?: GitlabJobNeed[];
+	variables?: GitlabPipelineVariables;
 	when?: 'on_success' | 'on_failure' | 'never' | 'always' | 'manual' | 'delayed';
 }

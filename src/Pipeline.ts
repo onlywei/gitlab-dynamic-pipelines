@@ -1,20 +1,20 @@
-import type { GitlabJob, GitlabJobDefaults } from './Job.js';
-import type { Include } from './Include.js';
-import type { Input } from './Input.js';
-import type { Workflow } from './Workflow.js';
-import type { Variables } from './Variables.js';
+import type { GitlabJob, GitlabJobDefaults } from './Job';
+import type { GitlabPipelineInclude } from './Include';
+import type { GitlabPipelineInput } from './Input';
+import type { GitlabPipelineWorkflow } from './Workflow';
+import type { GitlabPipelineVariables } from './Variables';
 
 export type GitlabPipelineHeader = {
-	spec?: { inputs?: Input[] }
+	spec?: { inputs?: GitlabPipelineInput[] }
 }
 
-type GlobalKeywords = {
+type GitlabPipelineGlobalKeywords = {
 	default?: GitlabJobDefaults;
-	include?: string | Include[];
+	include?: string | GitlabPipelineInclude[];
 	pages?: GitlabJob & { publish?: string; path_prefix?: string; };
 	stages?: string[];
-	variables?: Variables;
-	workflow?: Workflow;
+	variables?: GitlabPipelineVariables;
+	workflow?: GitlabPipelineWorkflow;
 }
 
-export type GitlabPipeline = Omit<Record<string, GitlabJob>, keyof GlobalKeywords> & GlobalKeywords;
+export type GitlabPipeline = Omit<Record<string, GitlabJob>, keyof GitlabPipelineGlobalKeywords> & GitlabPipelineGlobalKeywords;

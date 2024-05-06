@@ -1,0 +1,11 @@
+{
+	"compilerOptions": {
+		"allowJs": false,
+		"declaration": true,
+    "emitDeclarationOnly": true,
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+	},
+	"include": ["src"],
+	"exclude": []
+}

@@ -1,9 +1,10 @@
-import type { Input } from './Input.d.ts';
+import type { GitlabPipelineInput } from './Input';
+import { GitlabPipelineRule } from './Rule';
 
 type LocalInclude = {
 	component?: never;
 	file?: never;
-	inputs?: Input[];
+	inputs?: GitlabPipelineInput[];
 	local: string;
 	project?: never;
 	ref?: never;
@@ -14,7 +15,7 @@ type LocalInclude = {
 type ComponentInclude = {
 	component: string;
 	file?: never;
-	inputs?: Input[];
+	inputs?: GitlabPipelineInput[];
 	local?: never;
 	project?: never;
 	ref?: never;
@@ -25,7 +26,7 @@ type ComponentInclude = {
 type ProjectInclude = {
 	component: never;
 	file: string | string[];
-	inputs?: Input[];
+	inputs?: GitlabPipelineInput[];
 	local?: never;
 	project: string;
 	ref?: string;
@@ -36,7 +37,7 @@ type ProjectInclude = {
 type RemoteInclude = {
 	component: never;
 	file?: never;
-	inputs?: Input[];
+	inputs?: GitlabPipelineInput[];
 	local?: never;
 	project?: never;
 	ref?: never;
@@ -47,7 +48,7 @@ type RemoteInclude = {
 type TemplateInclude = {
 	component: never;
 	file?: never;
-	inputs?: Input[];
+	inputs?: GitlabPipelineInput[];
 	local?: never;
 	project?: never;
 	ref?: never;
@@ -55,4 +56,6 @@ type TemplateInclude = {
 	template?: string;
 }
 
-export type Include = LocalInclude | ComponentInclude | ProjectInclude | RemoteInclude | TemplateInclude;
+export type GitlabPipelineInclude = {
+	rules?: Pick<GitlabPipelineRule, 'if' | 'exists' | 'changes'>;
+} & (LocalInclude | ComponentInclude | ProjectInclude | RemoteInclude | TemplateInclude);

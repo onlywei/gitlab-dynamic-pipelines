@@ -1,4 +1,4 @@
-export type Input = {
+export type GitlabPipelineInput = {
 	default?: string;
 	description?: string;
 	options?: string[];

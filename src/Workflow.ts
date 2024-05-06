@@ -1,17 +1,17 @@
-import type { Rule } from './Rule.d.ts';
+import type { GitlabPipelineRule } from './Rule';
 
-type AutoCancel = {
+type GitlabPipelineAutoCancelConfig = {
 	on_new_commit?: 'conservative' | 'interruptible' | 'none';
 	on_job_failure?: 'all' | 'none';
 }
 
-type WorkflowRule = Pick<Rule, 'if' | 'changes' | 'exists' | 'variables'> & {
+type GitlabPipelineWorkflowRule = Pick<GitlabPipelineRule, 'if' | 'changes' | 'exists' | 'variables'> & {
 	when?: 'always' | 'never';
-	auto_cancel?: AutoCancel;
+	auto_cancel?: GitlabPipelineAutoCancelConfig;
 }
 
-export type Workflow = {
-	auto_cancel?: AutoCancel;
+export type GitlabPipelineWorkflow = {
+	auto_cancel?: GitlabPipelineAutoCancelConfig;
 	name?: string;
-	rules?: WorkflowRule[];
+	rules?: GitlabPipelineWorkflowRule[];
 }
