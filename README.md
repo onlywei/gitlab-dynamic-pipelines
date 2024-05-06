@@ -32,7 +32,8 @@ const globalKeywords: GlobalKeywords = {
   },
 };
 
-// define all jobs in a separate object
+// Define jobs in a separate object. This is a limitation of Typescript.
+// There is no way to define a type that has both known and unknown keys.
 const jobs: Pipeline = {
   job1: {
     stage: 'test',
@@ -45,7 +46,10 @@ const jobs: Pipeline = {
   },
 };
 
-fs.writeFileSync('.gitlab-ci.yml', YAML.stringify({ ...globalKeywords, ...jobs }));
+fs.writeFileSync('.gitlab-ci.yml', YAML.stringify({
+	...globalKeywords,
+	...jobs,
+}));
 ```
 
 ### Why are `GlobalKeywords` and `Pipeline` separate types?
