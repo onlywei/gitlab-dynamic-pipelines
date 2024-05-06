@@ -8,7 +8,7 @@
   "scripts": {
     "biome": "biome check --apply .",
     "build": "rm -rf dist && tsc",
-    "test": "npm run build && tsc --noEmit test/*.ts"
+    "test": "npm run build && node --import tsx --test test/*.ts"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,8 @@
   "homepage": "https://github.com/onlywei/gitlab-dynamic-pipelines#readme",
   "devDependencies": {
     "@biomejs/biome": "1.7.3",
+    "@types/node": "^20.12.10",
+    "tsx": "^4.9.3",
     "typescript": "^5.4.5"
   },
   "dependencies": {
