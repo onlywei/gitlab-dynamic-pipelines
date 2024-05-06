@@ -1,10 +1,12 @@
-type AccessOrPublic = {
-	access?: 'all' | 'developer' | 'none';
-	public?: never;
-} | {
-	access?: never;
-	public?: boolean;
-}
+type AccessOrPublic =
+	| {
+			access?: 'all' | 'developer' | 'none';
+			public?: never;
+	  }
+	| {
+			access?: never;
+			public?: boolean;
+	  };
 
 export type GitlabJobArtifacts = AccessOrPublic & {
 	exclude?: string[];
@@ -17,7 +19,7 @@ export type GitlabJobArtifacts = AccessOrPublic & {
 		annotations?: string;
 		api_fuzzing?: string;
 		browser_performance?: string;
-		coverage_report?: { coverage_format: string; path: string; };
+		coverage_report?: { coverage_format: string; path: string };
 		codequality?: string;
 		container_scanning?: string;
 		coverage_fuzzing?: string;

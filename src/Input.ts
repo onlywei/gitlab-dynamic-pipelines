@@ -4,4 +4,4 @@ export type GitlabPipelineInput = {
 	options?: string[];
 	regex?: string;
 	type?: 'array' | 'string' | 'number' | 'boolean';
-}
+};

@@ -1,5 +1,5 @@
 import type { GitlabPipelineInput } from './Input';
-import { GitlabPipelineRule } from './Rule';
+import type { GitlabPipelineRule } from './Rule';
 
 type LocalInclude = {
 	component?: never;
@@ -10,7 +10,7 @@ type LocalInclude = {
 	ref?: never;
 	remote?: never;
 	template?: never;
-}
+};
 
 type ComponentInclude = {
 	component: string;
@@ -21,7 +21,7 @@ type ComponentInclude = {
 	ref?: never;
 	remote?: never;
 	template?: never;
-}
+};
 
 type ProjectInclude = {
 	component: never;
@@ -32,7 +32,7 @@ type ProjectInclude = {
 	ref?: string;
 	remote?: never;
 	template?: never;
-}
+};
 
 type RemoteInclude = {
 	component: never;
@@ -43,7 +43,7 @@ type RemoteInclude = {
 	ref?: never;
 	remote?: string;
 	template?: never;
-}
+};
 
 type TemplateInclude = {
 	component: never;
@@ -54,8 +54,14 @@ type TemplateInclude = {
 	ref?: never;
 	remote?: never;
 	template?: string;
-}
+};
 
 export type GitlabPipelineInclude = {
 	rules?: Pick<GitlabPipelineRule, 'if' | 'exists' | 'changes'>;
-} & (LocalInclude | ComponentInclude | ProjectInclude | RemoteInclude | TemplateInclude);
+} & (
+	| LocalInclude
+	| ComponentInclude
+	| ProjectInclude
+	| RemoteInclude
+	| TemplateInclude
+);

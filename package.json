@@ -4,6 +4,7 @@
   "description": "TypeScript definitions for creating dynamic Gitlab CI/CD pipelines.",
   "types": "index.d.ts",
   "scripts": {
+    "biome": "biome check --apply .",
     "build": "dts-bundle-generator -o index.d.ts src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/onlywei/gitlab-cicd-types#readme",
   "devDependencies": {
+    "@biomejs/biome": "1.7.3",
     "dts-bundle-generator": "^9.5.1",
     "typescript": "^5.4.5"
   }
