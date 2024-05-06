@@ -1,5 +1,5 @@
 {
-  "name": "gitlab-cicd",
+  "name": "gitlab-dynamic-pipelines",
   "version": "0.3.0",
   "description": "TypeScript definitions for creating dynamic Gitlab CI/CD pipelines.",
   "types": "index.d.ts",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/onlywei/gitlab-cicd.git"
+    "url": "git+https://github.com/onlywei/gitlab-dynamic-pipelines.git"
   },
   "keywords": [
     "gitlab"
@@ -18,9 +18,9 @@
   "author": "Wei Wang <wei@fastmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/onlywei/gitlab-cicd/issues"
+    "url": "https://github.com/onlywei/gitlab-dynamic-pipelines/issues"
   },
-  "homepage": "https://github.com/onlywei/gitlab-cicd#readme",
+  "homepage": "https://github.com/onlywei/gitlab-dynamic-pipelines#readme",
   "devDependencies": {
     "@biomejs/biome": "1.7.3",
     "dts-bundle-generator": "^9.5.1",
