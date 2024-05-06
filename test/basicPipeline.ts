@@ -1,11 +1,7 @@
-import type { GlobalKeywords, Pipeline } from '../index';
+import type { GitlabCIDotYAML } from '../index';
 
-function printJSONPipeline(globalKeywords: GlobalKeywords, jobs: Pipeline) {
-	console.log(JSON.stringify({ ...globalKeywords, ...jobs }));
-}
-
-printJSONPipeline(
-	{
+export const basicPipeline: GitlabCIDotYAML = {
+	globalKeywords: {
 		workflow: {
 			name: 'Basic Pipeline',
 		},
@@ -14,7 +10,7 @@ printJSONPipeline(
 			image: 'node:20.12.2',
 		},
 	},
-	{
+	jobs: {
 		job1: {
 			stage: 'test',
 			script: ['echo "it works!'],
@@ -24,4 +20,4 @@ printJSONPipeline(
 			script: ['echo "it has been built!'],
 		},
 	},
-);
+};

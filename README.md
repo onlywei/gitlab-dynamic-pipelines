@@ -20,38 +20,37 @@ Use these types to build a basic pipeline like this:
 
 ```typescript
 import fs from 'node:fs';
-import { GlobalKeywords, Pipeline } from 'gitlab-cicd-types';
+import { GitlabCIDotYAML } from 'gitlab-cicd-types';
 
-const globalKeywords: GlobalKeywords = {
-  workflow: {
-    name: 'Basic Pipeline',
+const pipeline: GitlabCIDotYAML = {
+  globalKeywords: {
+    workflow: {
+      name: 'Basic Pipeline',
+    },
+    stages: ['test', 'build'],
+    default: {
+      image: 'node:18',
+    },
   },
-  stages: ['test', 'build'],
-  default: {
-    image: 'node:18',
-  },
-};
-
-// Define jobs in a separate object. This is a limitation of Typescript.
-// There is no way to define a type that has both known and unknown keys.
-const jobs: Pipeline = {
-  job1: {
-    stage: 'test',
-    image: 'node:20.12.2',
-    script: ['echo "it works!'],
-  },
-  job2: {
-    stage: 'build',
-    script: ['echo "it has been built!'],
+  jobs: {
+    job1: {
+      stage: 'test',
+      image: 'node:20.12.2',
+      script: ['echo "it works!'],
+    },
+    job2: {
+      stage: 'build',
+      script: ['echo "it has been built!'],
+    },
   },
 };
 
 fs.writeFileSync('.gitlab-ci.yml', YAML.stringify({
-	...globalKeywords,
-	...jobs,
+  ...pipeline.globalKeywords,
+  ...pipeline.jobs,
 }));
 ```
 
-### Why are `GlobalKeywords` and `Pipeline` separate types?
+### Why are `globalKeywords` and `jobs` separated and then recombined?
 
 This is a limitation of TypeScript. As of this version, there is no way to define a type that has both known and unknown keys.
