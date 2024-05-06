@@ -1,17 +1,11 @@
 # gitlab-dynamic-pipelines
 
-TypeScript definitions for creating dynamic Gitlab CI/CD pipelines. Helpful if you want to create JavaScript objects that follow the [GitLab CI/CD YAML Syntax Reference](https://docs.gitlab.com/ee/ci/yaml/).
+Package for creating dynamic Gitlab CI/CD pipelines in TypeScript. Helpful if you want to create TypeScript objects that follow the [GitLab CI/CD YAML Syntax Reference](https://docs.gitlab.com/ee/ci/yaml/) using TypeScript types.
 
 ## Installation
 
 ```
-npm install --save-dev gitlab-dynamic-pipelines
-```
-
-For dynamic Gitlab CI/CD pipelines, you most likely will also want to use [YAML](https://www.npmjs.com/package/yaml) so you can output the pipeline as a YAML file for Gitlab to understand:
-
-```
-npm install yaml
+npm install gitlab-dynamic-pipelines
 ```
 
 ## Usage
@@ -20,9 +14,9 @@ Use these types to build a basic pipeline like this:
 
 ```typescript
 import fs from 'node:fs';
-import { GitlabCIDotYAML } from 'gitlab-dynamic-pipelines';
+import { toYAML, Pipeline } from 'gitlab-dynamic-pipelines';
 
-const pipeline: GitlabCIDotYAML = {
+const pipeline: Pipeline = {
   globalKeywords: {
     workflow: {
       name: 'Basic Pipeline',
@@ -45,12 +39,9 @@ const pipeline: GitlabCIDotYAML = {
   },
 };
 
-fs.writeFileSync('.gitlab-ci.yml', YAML.stringify({
-  ...pipeline.globalKeywords,
-  ...pipeline.jobs,
-}));
+fs.writeFileSync('.gitlab-ci.yml', toYAML(pipeline));
 ```
 
-### Why are `globalKeywords` and `jobs` separated and then recombined?
+### Why are `globalKeywords` and `jobs` separated into two different sub-objects?
 
 This is a limitation of TypeScript. As of this version, there is no way to define a type that has both known and unknown keys.

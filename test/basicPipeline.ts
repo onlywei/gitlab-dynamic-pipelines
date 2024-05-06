@@ -1,6 +1,6 @@
-import type { GitlabCIDotYAML } from '../index';
+import type { Pipeline } from '../dist/index';
 
-export const basicPipeline: GitlabCIDotYAML = {
+export const basicPipeline: Pipeline = {
 	globalKeywords: {
 		workflow: {
 			name: 'Basic Pipeline',

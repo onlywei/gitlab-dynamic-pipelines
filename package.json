@@ -2,7 +2,9 @@
   "name": "gitlab-dynamic-pipelines",
   "version": "0.3.0",
   "description": "TypeScript definitions for creating dynamic Gitlab CI/CD pipelines.",
-  "types": "index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "true",
   "scripts": {
     "biome": "biome check --apply .",
     "build": "rm -rf dist && tsc",
@@ -23,7 +25,6 @@
   "homepage": "https://github.com/onlywei/gitlab-dynamic-pipelines#readme",
   "devDependencies": {
     "@biomejs/biome": "1.7.3",
-    "dts-bundle-generator": "^9.5.1",
     "typescript": "^5.4.5"
   },
   "dependencies": {

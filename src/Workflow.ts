@@ -5,16 +5,13 @@ type AutoCancelConfig = {
 	on_job_failure?: 'all' | 'none';
 };
 
-type PipelineWorkflowRule = Pick<
-	Rule,
-	'if' | 'changes' | 'exists' | 'variables'
-> & {
+type WorkflowRule = Pick<Rule, 'if' | 'changes' | 'exists' | 'variables'> & {
 	when?: 'always' | 'never';
 	auto_cancel?: AutoCancelConfig;
 };
 
-export type PipelineWorkflow = {
+export type Workflow = {
 	auto_cancel?: AutoCancelConfig;
 	name?: string;
-	rules?: PipelineWorkflowRule[];
+	rules?: WorkflowRule[];
 };
