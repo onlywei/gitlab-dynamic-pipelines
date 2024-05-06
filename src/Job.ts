@@ -1,5 +1,5 @@
 import type { ArtifactsConfig } from './Artifacts';
-import type { Include } from './Include';
+import type { PipelineRef } from './Include';
 import type { JobNeed } from './Need';
 import type { ParallelMatrix } from './Parallel';
 import type { Rule } from './Rule';
@@ -119,7 +119,7 @@ type JobService = JobImage & {
 
 type TriggerConfig = (
 	| {
-			include: string | Include[];
+			include: string | PipelineRef[];
 	  }
 	| {
 			project: string;

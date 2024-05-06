@@ -24,7 +24,7 @@ type ComponentInclude = {
 };
 
 type ProjectInclude = {
-	component: never;
+	component?: never;
 	file: string | string[];
 	inputs?: Input[];
 	local?: never;
@@ -35,7 +35,7 @@ type ProjectInclude = {
 };
 
 type RemoteInclude = {
-	component: never;
+	component?: never;
 	file?: never;
 	inputs?: Input[];
 	local?: never;
@@ -46,7 +46,7 @@ type RemoteInclude = {
 };
 
 type TemplateInclude = {
-	component: never;
+	component?: never;
 	file?: never;
 	inputs?: Input[];
 	local?: never;
@@ -56,7 +56,7 @@ type TemplateInclude = {
 	template?: string;
 };
 
-export type Include = {
+export type PipelineRef = {
 	rules?: Pick<Rule, 'if' | 'exists' | 'changes'>;
 } & (
 	| LocalInclude

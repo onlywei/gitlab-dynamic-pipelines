@@ -1,0 +1,13 @@
+workflow:
+  name: Pipeline w/ Include
+stages:
+  - test
+  - build
+include:
+  - project: somewhere
+    ref: main
+    file: /ci_library/file.yml
+job1:
+  stage: test
+  script:
+    - echo "it works!"

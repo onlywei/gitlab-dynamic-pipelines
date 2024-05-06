@@ -1,11 +1,12 @@
 import { stringify } from 'yaml';
-import type { Include } from './Include';
+import type { PipelineRef } from './Include';
 import type { Input } from './Input';
 import type { Job, JobDefaults } from './Job';
 import type { GitlabCICDVariables } from './Variables';
 import type { Workflow } from './Workflow';
 
 export { type Job } from './Job';
+export { type PipelineRef } from './Include';
 
 export type YAMLHeader = {
 	spec?: { inputs?: Input[] };
@@ -13,7 +14,7 @@ export type YAMLHeader = {
 
 export type GlobalKeywords = {
 	default?: JobDefaults;
-	include?: string | Include[];
+	include?: string | PipelineRef[];
 	pages?: Job & { publish?: string; path_prefix?: string };
 	stages?: string[];
 	variables?: GitlabCICDVariables;
