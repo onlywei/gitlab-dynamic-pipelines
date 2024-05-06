@@ -2,9 +2,11 @@
 	"compilerOptions": {
 		"allowJs": false,
 		"declaration": true,
-    "emitDeclarationOnly": true,
 		"forceConsistentCasingInFileNames": true,
+		"lib": ["ESNext"],
+		"outDir": "dist",
 		"strict": true,
+		"target": "ESNext"
 	},
 	"include": ["src"],
 	"exclude": []
