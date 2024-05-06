@@ -1,4 +1,4 @@
-export type GitlabPipelineVariables = Record<
+export type GitlabCICDVariables = Record<
 	string,
 	| string
 	| {

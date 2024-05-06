@@ -8,7 +8,7 @@ type AccessOrPublic =
 			public?: boolean;
 	  };
 
-export type GitlabJobArtifacts = AccessOrPublic & {
+export type ArtifactsConfig = AccessOrPublic & {
 	exclude?: string[];
 	expire_in?: string;
 	expose_as?: string;

@@ -1,2 +1,2 @@
-export { GitlabJob } from './Job';
-export { GitlabPipeline, GitlabPipelineHeader } from './Pipeline';
+export { Job } from './Job';
+export { GlobalKeywords, YAMLHeader, Pipeline } from './Pipeline';

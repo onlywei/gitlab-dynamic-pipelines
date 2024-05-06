@@ -1,7 +1,7 @@
-import type { GitlabJobNeed } from './Need';
-import type { GitlabPipelineVariables } from './Variables';
+import type { JobNeed } from './Need';
+import type { GitlabCICDVariables } from './Variables';
 
-export type GitlabPipelineRule = {
+export type Rule = {
 	allow_failure?: boolean;
 	changes?:
 		| string[]
@@ -18,8 +18,8 @@ export type GitlabPipelineRule = {
 		  };
 	if?: string;
 	interruptible?: boolean;
-	needs?: GitlabJobNeed[];
-	variables?: GitlabPipelineVariables;
+	needs?: JobNeed[];
+	variables?: GitlabCICDVariables;
 	when?:
 		| 'on_success'
 		| 'on_failure'

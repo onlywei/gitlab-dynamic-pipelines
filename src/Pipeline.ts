@@ -1,24 +1,22 @@
-import type { GitlabPipelineInclude } from './Include';
-import type { GitlabPipelineInput } from './Input';
-import type { GitlabJob, GitlabJobDefaults } from './Job';
-import type { GitlabPipelineVariables } from './Variables';
-import type { GitlabPipelineWorkflow } from './Workflow';
+import type { Include } from './Include';
+import type { Input } from './Input';
+import type { Job, JobDefaults } from './Job';
+import type { GitlabCICDVariables } from './Variables';
+import type { PipelineWorkflow } from './Workflow';
 
-export type GitlabPipelineHeader = {
-	spec?: { inputs?: GitlabPipelineInput[] };
+export type YAMLHeader = {
+	spec?: { inputs?: Input[] };
 };
 
-type GitlabPipelineGlobalKeywords = {
-	default?: GitlabJobDefaults;
-	include?: string | GitlabPipelineInclude[];
-	pages?: GitlabJob & { publish?: string; path_prefix?: string };
+export type GlobalKeywords = {
+	default?: JobDefaults;
+	include?: string | Include[];
+	pages?: Job & { publish?: string; path_prefix?: string };
 	stages?: string[];
-	variables?: GitlabPipelineVariables;
-	workflow?: GitlabPipelineWorkflow;
+	variables?: GitlabCICDVariables;
+	workflow?: PipelineWorkflow;
 };
 
-export type GitlabPipeline = Omit<
-	Record<string, GitlabJob>,
-	keyof GitlabPipelineGlobalKeywords
-> &
-	GitlabPipelineGlobalKeywords;
+export type Pipeline = {
+	[jobName: string]: Job;
+};

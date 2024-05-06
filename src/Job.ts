@@ -1,11 +1,11 @@
-import type { GitlabJobArtifacts } from './Artifacts';
-import type { GitlabPipelineInclude } from './Include';
-import type { GitlabJobNeed } from './Need';
+import type { ArtifactsConfig } from './Artifacts';
+import type { Include } from './Include';
+import type { JobNeed } from './Need';
 import type { ParallelMatrix } from './Parallel';
-import type { GitlabPipelineRule } from './Rule';
-import type { GitlabPipelineVariables } from './Variables';
+import type { Rule } from './Rule';
+import type { GitlabCICDVariables } from './Variables';
 
-type GitlabJobCache = {
+type JobCache = {
 	fallback_keys?: string[];
 	key?: string | { files: string[]; prefix?: string };
 	paths: string[];
@@ -15,7 +15,7 @@ type GitlabJobCache = {
 	when?: 'on_success' | 'on_failure' | 'always';
 };
 
-type GitlabJobEnvironment = {
+type JobEnvironment = {
 	action?: 'start' | 'prepare' | 'stop' | 'verify' | 'access';
 	auto_stop_in?: string;
 	deployment_tier:
@@ -30,20 +30,20 @@ type GitlabJobEnvironment = {
 	url?: string;
 };
 
-type GitlabJobHooks = {
+type JobHooks = {
 	pre_get_sources_script?: string | string[];
 };
 
-type GitlabJobIdToken = {
+type JobIdToken = {
 	aud: string;
 };
 
-type GitlabJobInheritConfig = {
+type JobInheritConfig = {
 	default?: boolean | string[];
 	variables?: boolean | string[];
 };
 
-type GitlabJobImage = {
+type JobImage = {
 	name: string;
 	command?: string | string[];
 	docker?: { platform?: string; user: string };
@@ -51,14 +51,14 @@ type GitlabJobImage = {
 	pull_policy?: 'always' | 'if-not-present' | 'never';
 };
 
-type GitlabReleaseLinkAsset = {
+type ReleaseLinkAsset = {
 	name: string;
 	url: string;
 	filepath?: string;
 	link_type?: string;
 };
 
-type GitlabJobReleaseConfig = {
+type JobReleaseConfig = {
 	tag_name: string;
 	tag_message?: string;
 	name?: string;
@@ -66,10 +66,10 @@ type GitlabJobReleaseConfig = {
 	ref?: string;
 	milestones?: string;
 	released_at?: string;
-	assets?: { links?: GitlabReleaseLinkAsset[] };
+	assets?: { links?: ReleaseLinkAsset[] };
 };
 
-type GitlabJobRetryConfig =
+type JobRetryConfig =
 	| 0
 	| 1
 	| 2
@@ -92,7 +92,7 @@ type GitlabJobRetryConfig =
 			exit_codes?: number | number[];
 	  };
 
-type GitlabJobSecret = {
+type JobSecret = {
 	vault?:
 		| string
 		| {
@@ -112,14 +112,14 @@ type GitlabJobSecret = {
 	token?: string;
 };
 
-type GitlabJobService = GitlabJobImage & {
+type JobService = JobImage & {
 	alias?: string;
-	variables?: GitlabPipelineVariables;
+	variables?: GitlabCICDVariables;
 };
 
-type GitlabTriggerConfig = (
+type TriggerConfig = (
 	| {
-			include: string | GitlabPipelineInclude[];
+			include: string | Include[];
 	  }
 	| {
 			project: string;
@@ -130,37 +130,37 @@ type GitlabTriggerConfig = (
 	strategy?: string;
 };
 
-export type GitlabJob = {
+export type Job = {
 	after_script?: string | string[];
 	allow_failure?: boolean | { exit_codes: number | number[] };
-	artifacts?: GitlabJobArtifacts;
+	artifacts?: ArtifactsConfig;
 	before_script?: string | string[];
-	cache?: GitlabJobCache;
+	cache?: JobCache;
 	coverage?: `/${string}/`;
 	dast_configuration?: { site_profile?: string; scanner_profile?: string };
 	dependencies?: string[];
-	environment?: string | GitlabJobEnvironment;
+	environment?: string | JobEnvironment;
 	extends?: string | string[];
-	hooks?: GitlabJobHooks;
+	hooks?: JobHooks;
 	identity?: 'google_cloud';
-	id_tokens?: Record<string, GitlabJobIdToken>;
-	image?: string | GitlabJobImage;
-	inherit?: GitlabJobInheritConfig;
+	id_tokens?: Record<string, JobIdToken>;
+	image?: string | JobImage;
+	inherit?: JobInheritConfig;
 	interruptible?: boolean;
-	needs?: GitlabJobNeed[];
+	needs?: JobNeed[];
 	parallel?: number | ParallelMatrix;
-	release?: GitlabJobReleaseConfig;
+	release?: JobReleaseConfig;
 	resource_group?: string;
-	retry?: GitlabJobRetryConfig;
-	rules?: GitlabPipelineRule[];
+	retry?: JobRetryConfig;
+	rules?: Rule[];
 	script?: string | string[];
-	secrets?: Record<string, GitlabJobSecret>;
-	services?: string[] | GitlabJobService[];
+	secrets?: Record<string, JobSecret>;
+	services?: string[] | JobService[];
 	stage?: string;
 	tags?: string[];
 	timeout?: string;
-	trigger?: string | GitlabTriggerConfig;
-	variables?: GitlabPipelineVariables;
+	trigger?: string | TriggerConfig;
+	variables?: GitlabCICDVariables;
 	when?:
 		| 'on_success'
 		| 'on_failure'
@@ -170,8 +170,8 @@ export type GitlabJob = {
 		| 'delayed';
 };
 
-export type GitlabJobDefaults = Pick<
-	GitlabJob,
+export type JobDefaults = Pick<
+	Job,
 	| 'after_script'
 	| 'artifacts'
 	| 'before_script'

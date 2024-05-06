@@ -1,6 +1,6 @@
 import type { ParallelMatrix } from './Parallel';
 
-export type GitlabJobNeed =
+export type JobNeed =
 	| string
 	| {
 			project: string;
