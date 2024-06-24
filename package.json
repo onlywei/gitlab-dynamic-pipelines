@@ -8,6 +8,7 @@
   "scripts": {
     "biome": "biome check --apply .",
     "build": "rm -rf dist && tsc",
+    "prepublishOnly": "npm run build",
     "test": "npm run build && npm run ts-check && node --import tsx --test test/*.ts",
     "ts-check": "tsc --noEmit test/*.ts"
   },
