@@ -9,7 +9,7 @@ export { type Job } from './Job';
 export { type PipelineRef } from './Include';
 
 export type YAMLHeader = {
-	spec?: { inputs?: Input[] };
+	spec?: { inputs?: Record<string, Input> };
 };
 
 export type GlobalKeywords = {
