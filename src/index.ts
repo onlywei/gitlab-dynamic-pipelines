@@ -1,4 +1,5 @@
 import { stringify } from 'yaml';
+import { referenceTag } from './referenceTag';
 import type { PipelineRef } from './Include';
 import type { Input } from './Input';
 import type { Job, JobDefaults } from './Job';
@@ -7,6 +8,7 @@ import type { Workflow } from './Workflow';
 
 export { type Job } from './Job';
 export { type PipelineRef } from './Include';
+export { ReferenceTag } from './referenceTag';
 
 export type YAMLHeader = {
 	spec?: { inputs?: Record<string, Input> };
@@ -28,15 +30,16 @@ export type Pipeline = {
 };
 
 export function toYAML(pipeline: Pipeline) {
+	const stringifyOptions = { customTags: [referenceTag] };
 	let result = '';
 
 	if (pipeline.header) {
-		result += stringify(pipeline.header);
+		result += stringify(pipeline.header, stringifyOptions);
 		result += '---\n\n';
 	}
 
-	result += stringify(pipeline.globalKeywords);
-	result += stringify(pipeline.jobs);
+	result += stringify(pipeline.globalKeywords, stringifyOptions);
+	result += stringify(pipeline.jobs, stringifyOptions);
 
 	return result;
 }

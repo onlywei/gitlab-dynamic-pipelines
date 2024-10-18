@@ -2,6 +2,7 @@ import type { ArtifactsConfig } from './Artifacts';
 import type { PipelineRef } from './Include';
 import type { JobNeed } from './Need';
 import type { ParallelMatrix } from './Parallel';
+import type { ReferenceTag } from './referenceTag';
 import type { Rule } from './Rule';
 import type { GitlabCICDVariables } from './Variables';
 
@@ -130,11 +131,13 @@ type TriggerConfig = (
 	strategy?: string;
 };
 
+type Script = string | ReferenceTag | (string | ReferenceTag)[];
+
 export type Job = {
-	after_script?: string | string[];
+	after_script?: Script;
 	allow_failure?: boolean | { exit_codes: number | number[] };
 	artifacts?: ArtifactsConfig;
-	before_script?: string | string[];
+	before_script?: Script;
 	cache?: JobCache;
 	coverage?: `/${string}/`;
 	dast_configuration?: { site_profile?: string; scanner_profile?: string };
@@ -153,7 +156,7 @@ export type Job = {
 	resource_group?: string;
 	retry?: JobRetryConfig;
 	rules?: Rule[];
-	script?: string | string[];
+	script?: Script;
 	secrets?: Record<string, JobSecret>;
 	services?: string[] | JobService[];
 	stage?: string;

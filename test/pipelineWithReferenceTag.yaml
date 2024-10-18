@@ -1,0 +1,11 @@
+workflow:
+  name: Pipeline w/ Reference Tag
+include:
+  - component: some/awesome-component/
+    inputs:
+      MY_INPUT: $MY_INPUT
+job1:
+  before_script:
+    - !reference [.awesome-component, before_script]
+  script:
+    - echo "it works!"

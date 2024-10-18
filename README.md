@@ -42,6 +42,19 @@ const pipeline: Pipeline = {
 writeFileSync('.gitlab-ci.yml', toYAML(pipeline));
 ```
 
+### Reference Tags
+
+GitLab CI/CD [Reference Tags](https://docs.gitlab.com/ee/ci/yaml/yaml_optimization.html#reference-tags) can be created within scripts and variables using the included `ReferenceTag` class:
+
+```
+import { ReferenceTag } from 'gitlab-dynamic-pipelines';
+
+myJob.before_script = [
+  new ReferenceTag(['.something', 'before_script']),
+  'my_script.sh',
+];
+```
+
 ### Why are `globalKeywords` and `jobs` separated into two different sub-objects?
 
 This is a limitation of TypeScript. As of this version, there is no way to define a type that has both known and unknown keys.

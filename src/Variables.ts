@@ -1,4 +1,6 @@
-type VariableValue = string | boolean | number;
+import type { ReferenceTag } from './referenceTag';
+
+type VariableValue = string | boolean | number | ReferenceTag;
 
 export type GitlabCICDVariables = Record<
 	string,
