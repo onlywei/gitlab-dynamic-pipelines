@@ -8,6 +8,7 @@ import type { Workflow } from './Workflow';
 
 export { type Job } from './Job';
 export { type PipelineRef } from './Include';
+export { type JobNeed } from './Need';
 export { ReferenceTag } from './referenceTag';
 
 export type YAMLHeader = {
