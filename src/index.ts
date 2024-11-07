@@ -1,7 +1,7 @@
 import { stringify } from 'yaml';
 import { referenceTag } from './referenceTag';
 import type { PipelineRef } from './Include';
-import type { Input } from './Input';
+import type { ComponentInputSpec } from './Input';
 import type { Job, JobDefaults } from './Job';
 import type { GitlabCICDVariables } from './Variables';
 import type { Workflow } from './Workflow';
@@ -12,7 +12,7 @@ export { type JobNeed } from './Need';
 export { ReferenceTag } from './referenceTag';
 
 export type YAMLHeader = {
-	spec?: { inputs?: Record<string, Input> };
+	spec?: { inputs?: Record<string, ComponentInputSpec> };
 };
 
 export type GlobalKeywords = {

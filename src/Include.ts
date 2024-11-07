@@ -1,10 +1,10 @@
-import type { Input } from './Input';
+import type { IncludeInput } from './Input';
 import type { Rule } from './Rule';
 
 type LocalInclude = {
 	component?: never;
 	file?: never;
-	inputs?: Record<string, Input>;
+	inputs?: Record<string, IncludeInput>;
 	local: string;
 	project?: never;
 	ref?: never;
@@ -15,7 +15,7 @@ type LocalInclude = {
 type ComponentInclude = {
 	component: string;
 	file?: never;
-	inputs?: Record<string, Input>;
+	inputs?: Record<string, IncludeInput>;
 	local?: never;
 	project?: never;
 	ref?: never;
@@ -26,7 +26,7 @@ type ComponentInclude = {
 type ProjectInclude = {
 	component?: never;
 	file: string | string[];
-	inputs?: Record<string, Input>;
+	inputs?: Record<string, IncludeInput>;
 	local?: never;
 	project: string;
 	ref?: string;
@@ -37,7 +37,7 @@ type ProjectInclude = {
 type RemoteInclude = {
 	component?: never;
 	file?: never;
-	inputs?: Record<string, Input>;
+	inputs?: Record<string, IncludeInput>;
 	local?: never;
 	project?: never;
 	ref?: never;
@@ -48,7 +48,7 @@ type RemoteInclude = {
 type TemplateInclude = {
 	component?: never;
 	file?: never;
-	inputs?: Record<string, Input>;
+	inputs?: Record<string, IncludeInput>;
 	local?: never;
 	project?: never;
 	ref?: never;
