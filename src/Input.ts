@@ -1,13 +1,12 @@
+type Primitive = boolean | number | string;
+
 export type IncludeInput =
-	| string
-	| number
-	| boolean
-	| string[]
-	| Record<string, any>[]
-	| (string | Record<string, string | string[]>)[]; // this is not documented but it works
+	| Primitive
+	| Primitive[]
+	| Record<string, Primitive | Primitive[]>[];
 
 export type ComponentInputSpec = {
-	default?: string | string[] | Record<string, string | string[]>;
+	default?: IncludeInput;
 	description?: string;
 	options?: string[];
 	regex?: string;
