@@ -39,8 +39,13 @@ export function toYAML(pipeline: Pipeline) {
 		result += '---\n\n';
 	}
 
-	result += stringify(pipeline.globalKeywords, stringifyOptions);
-	result += stringify(pipeline.jobs, stringifyOptions);
+	if (Object.keys(pipeline.globalKeywords).length) {
+		result += stringify(pipeline.globalKeywords, stringifyOptions);
+	}
+
+	if (Object.keys(pipeline.jobs).length) {
+		result += stringify(pipeline.jobs, stringifyOptions);
+	}
 
 	return result;
 }
