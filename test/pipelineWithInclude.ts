@@ -16,24 +16,21 @@ test('pipeline with include', () => {
 					ref: 'main',
 					file: '/ci_library/file.yml',
 				},
-                {
+				{
 					project: 'somewhere',
 					ref: 'main',
 					file: '/ci_library/file.yml',
-                    rules: [
-                        {
-                            if: 'foo == foo',
-                            when: 'never'
-                        },
-                        {
-                            if: 'bar == bar',
-                            when: 'on_success',
-                            changes: [
-                                "foo/*",
-                                "bar/*"
-                            ]
-                        }
-                    ]
+					rules: [
+						{
+							if: 'foo == foo',
+							when: 'never',
+						},
+						{
+							if: 'bar == bar',
+							when: 'on_success',
+							changes: ['foo/*', 'bar/*'],
+						},
+					],
 				},
 			],
 		},
