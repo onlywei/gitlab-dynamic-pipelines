@@ -57,7 +57,7 @@ type TemplateInclude = {
 };
 
 export type PipelineRef = {
-	rules?: Rule[];
+	rules?: Pick<Rule, 'if' | 'exists' | 'changes'>[];
 } & (
 	| LocalInclude
 	| ComponentInclude

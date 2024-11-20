@@ -23,11 +23,9 @@ test('pipeline with include', () => {
 					rules: [
 						{
 							if: 'foo == foo',
-							when: 'never',
 						},
 						{
 							if: 'bar == bar',
-							when: 'on_success',
 							changes: ['foo/*', 'bar/*'],
 						},
 					],
