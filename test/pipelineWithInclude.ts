@@ -16,6 +16,20 @@ test('pipeline with include', () => {
 					ref: 'main',
 					file: '/ci_library/file.yml',
 				},
+				{
+					project: 'somewhere',
+					ref: 'main',
+					file: '/ci_library/file.yml',
+					rules: [
+						{
+							if: 'foo == foo',
+						},
+						{
+							if: 'bar == bar',
+							changes: ['foo/*', 'bar/*'],
+						},
+					],
+				},
 			],
 		},
 		jobs: {
