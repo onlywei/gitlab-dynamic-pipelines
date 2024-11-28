@@ -1,7 +1,7 @@
 import { equal } from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
-import { toYAML, type Pipeline } from '../dist/index';
+import { type Pipeline, toYAML } from '../dist/index';
 
 test('pipeline with include', () => {
 	const pipelineWithInclude: Pipeline = {

@@ -2,9 +2,9 @@ import type { ArtifactsConfig } from './Artifacts';
 import type { PipelineRef } from './Include';
 import type { JobNeed } from './Need';
 import type { ParallelMatrix } from './Parallel';
-import type { ReferenceTag } from './referenceTag';
 import type { Rule } from './Rule';
 import type { GitlabCICDVariables } from './Variables';
+import type { ReferenceTag } from './referenceTag';
 
 type JobCache = {
 	fallback_keys?: string[];

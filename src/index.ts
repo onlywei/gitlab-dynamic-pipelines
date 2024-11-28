@@ -1,14 +1,14 @@
 import { stringify } from 'yaml';
-import { referenceTag } from './referenceTag';
 import type { PipelineRef } from './Include';
 import type { ComponentInputSpec } from './Input';
 import type { Job, JobDefaults } from './Job';
 import type { GitlabCICDVariables } from './Variables';
 import type { Workflow } from './Workflow';
+import { referenceTag } from './referenceTag';
 
-export { type Job } from './Job';
-export { type PipelineRef } from './Include';
-export { type JobNeed } from './Need';
+export type { Job } from './Job';
+export type { PipelineRef } from './Include';
+export type { JobNeed } from './Need';
 export { ReferenceTag } from './referenceTag';
 
 export type YAMLHeader = {
