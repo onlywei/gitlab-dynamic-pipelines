@@ -4,24 +4,20 @@
   "description": "Create dynamic Gitlab CI/CD pipelines using TypeScript with types",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "module": "true",
+  "type": "module",
   "scripts": {
     "build": "rm -rf dist && tsc",
     "check-format": "biome check .",
     "ci": "npm run build && npm run test && npm run check-format",
     "format": "biome check --write .",
-    "local-release": "changeset version && changeset publish",
     "prepublishOnly": "npm run ci",
-    "test": "npm run build && npm run ts-check && node --import tsx --test test/*.ts",
-    "ts-check": "tsc --noEmit test/*.ts"
+    "test": "npm run build && node --experimental-strip-types --test"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/onlywei/gitlab-dynamic-pipelines.git"
   },
-  "keywords": [
-    "gitlab"
-  ],
+  "keywords": ["gitlab"],
   "author": "Wei Wang <wei@fastmail.com>",
   "license": "MIT",
   "bugs": {
@@ -30,10 +26,9 @@
   "homepage": "https://github.com/onlywei/gitlab-dynamic-pipelines#readme",
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "@changesets/cli": "^2.27.10",
-    "@types/node": "^20.12.10",
-    "tsx": "^4.9.3",
-    "typescript": "^5.4.5"
+    "@changesets/cli": "^2.28.0",
+    "@types/node": "^22.13.4",
+    "typescript": "^5.7.3"
   },
   "dependencies": {
     "yaml": "^2.4.2"

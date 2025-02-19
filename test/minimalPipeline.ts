@@ -1,20 +1,17 @@
 import { equal } from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
-import { type Pipeline, toYAML } from '../dist/index';
+import { type Pipeline, toYAML } from '../dist/index.js';
 
 test('minimal pipeline', () => {
-	const minimalPipeline: Pipeline = {
-		globalKeywords: {
-			workflow: {
-				name: 'Minimal Pipeline',
-			},
-		},
-		jobs: {},
-	};
+  const minimalPipeline: Pipeline = {
+    globalKeywords: {
+      workflow: {
+        name: 'Minimal Pipeline',
+      },
+    },
+    jobs: {},
+  };
 
-	equal(
-		toYAML(minimalPipeline),
-		readFileSync('./test/minimalPipeline.yaml', 'utf-8'),
-	);
+  equal(toYAML(minimalPipeline), readFileSync('./test/minimalPipeline.yaml', 'utf-8'));
 });
