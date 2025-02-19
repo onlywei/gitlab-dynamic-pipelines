@@ -6,8 +6,9 @@
   "types": "dist/index.d.ts",
   "module": "true",
   "scripts": {
-    "ci": "npm run test && biome check .",
     "build": "rm -rf dist && tsc",
+    "check-format": "biome check .",
+    "ci": "npm run build && npm run test && npm run check-format",
     "format": "biome check --write .",
     "local-release": "changeset version && changeset publish",
     "prepublishOnly": "npm run ci",
