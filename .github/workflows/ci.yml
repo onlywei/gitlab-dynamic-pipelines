@@ -22,8 +22,10 @@ jobs:
         with:
           node-version: "22"
 
+      - uses: pnpm/action-setup@v4
+
       - name: Install dependencies
-        run: npm install
+        run: pnpm install
 
       - name: Run CI
-        run: npm run ci
+        run: pnpm run ci
