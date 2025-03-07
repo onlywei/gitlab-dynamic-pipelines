@@ -133,7 +133,7 @@ export type Job = {
   allow_failure?: boolean | { exit_codes: number | number[] };
   artifacts?: ArtifactsConfig;
   before_script?: Script;
-  cache?: JobCache;
+  cache?: JobCache | Record<string, never>;
   coverage?: `/${string}/`;
   dast_configuration?: { site_profile?: string; scanner_profile?: string };
   dependencies?: string[];
