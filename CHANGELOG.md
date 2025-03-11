@@ -1,5 +1,11 @@
 # gitlab-dynamic-pipelines
 
+## 0.10.1
+
+### Patch Changes
+
+- ff728e8: Allow cache to be set to an empty array, not object. This is consistent with the Gitlab docs: https://docs.gitlab.com/ci/caching/#disable-cache-for-specific-jobs.
+
 ## 0.10.0
 
 ### Minor Changes
