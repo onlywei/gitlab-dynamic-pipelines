@@ -3,8 +3,8 @@ import type { PipelineRef } from './Include.ts';
 import type { JobNeed } from './Need.ts';
 import type { ParallelMatrix } from './Parallel.ts';
 import type { Rule } from './Rule.ts';
-import type { GitlabCICDVariables } from './Variables.ts';
 import type { ReferenceTag } from './referenceTag.ts';
+import type { GitlabCICDVariables } from './Variables.ts';
 
 type JobCache = {
   fallback_keys?: string[];

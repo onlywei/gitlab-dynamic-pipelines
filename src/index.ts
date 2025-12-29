@@ -2,12 +2,12 @@ import { stringify } from 'yaml';
 import type { PipelineRef } from './Include.ts';
 import type { ComponentInputSpec } from './Input.ts';
 import type { Job, JobDefaults } from './Job.ts';
+import { referenceTag } from './referenceTag.ts';
 import type { GitlabCICDVariables } from './Variables.ts';
 import type { Workflow } from './Workflow.ts';
-import { referenceTag } from './referenceTag.ts';
 
-export type { Job } from './Job.ts';
 export type { PipelineRef } from './Include.ts';
+export type { Job } from './Job.ts';
 export type { JobNeed } from './Need.ts';
 export { ReferenceTag } from './referenceTag.ts';
 
