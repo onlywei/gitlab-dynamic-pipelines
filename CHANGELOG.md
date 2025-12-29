@@ -1,5 +1,11 @@
 # gitlab-dynamic-pipelines
 
+## 0.10.2
+
+### Patch Changes
+
+- 5969d48: Set up NPM trusted publishing
+
 ## 0.10.1
 
 ### Patch Changes
