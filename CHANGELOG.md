@@ -1,5 +1,15 @@
 # gitlab-dynamic-pipelines
 
+## 1.0.0
+
+### Major Changes
+
+- 1df817a: Mark package stable -- release v1.0.0
+
+### Patch Changes
+
+- 1df817a: Update all dependencies
+
 ## 0.10.2
 
 ### Patch Changes
