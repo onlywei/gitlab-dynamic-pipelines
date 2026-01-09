@@ -1,0 +1,27 @@
+stages:
+  - setup
+  - trigger_pipeline
+workflow:
+  name: Pipeline w/ Dynamic Child Pipeline
+setup:
+  stage: setup
+  script:
+    - echo Script to generate a child pipeline here
+  artifacts:
+    paths:
+      - $CI_PROJECT_DIR/pipeline.yml
+trigger_pipeline:
+  needs:
+    - job: setup
+      artifacts: true
+  inherit:
+    variables: true
+  trigger:
+    include:
+      - artifact: $CI_PROJECT_DIR/pipeline.yml
+        job: setup
+    strategy: depend
+    forward:
+      pipeline_variables: true
+  variables:
+    PARENT_PIPELINE_ID: $CI_PIPELINE_ID
