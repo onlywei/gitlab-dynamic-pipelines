@@ -1,5 +1,5 @@
 import { equal } from 'node:assert/strict';
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import { type Pipeline, toYAML } from '../dist/index.js';
 
@@ -14,13 +14,9 @@ test('dynamic child pipeline', () => {
     jobs: {
       setup: {
         stage: 'setup',
-        script: [
-          'echo Script to generate a child pipeline here',
-        ],
+        script: ['echo Script to generate a child pipeline here'],
         artifacts: {
-          paths: [
-            '$CI_PROJECT_DIR/pipeline.yml',
-          ],
+          paths: ['$CI_PROJECT_DIR/pipeline.yml'],
         },
       },
       trigger_pipeline: {
@@ -52,5 +48,8 @@ test('dynamic child pipeline', () => {
     },
   };
 
-  equal(toYAML(pipelineWithDynamicChildPipeline), readFileSync('./test/pipelineWithDynamicChildPipeline.yaml', 'utf-8'));
+  equal(
+    toYAML(pipelineWithDynamicChildPipeline),
+    readFileSync('./test/pipelineWithDynamicChildPipeline.yaml', 'utf-8'),
+  );
 });
