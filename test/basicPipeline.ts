@@ -6,25 +6,25 @@ import { type Pipeline, toYAML } from '../dist/index.js';
 test('basic pipeline', () => {
   const basicPipeline: Pipeline = {
     globalKeywords: {
-      workflow: {
-        name: 'Basic Pipeline',
-      },
-      stages: ['test', 'build'],
       default: {
         image: 'node:20.12.2',
+      },
+      stages: ['test', 'build'],
+      workflow: {
+        name: 'Basic Pipeline',
       },
     },
     jobs: {
       job1: {
-        stage: 'test',
         script: ['echo "it works!"'],
+        stage: 'test',
       },
       job2: {
-        stage: 'build',
         script: ['echo "it has been built!"'],
+        stage: 'build',
       },
     },
   };
 
-  equal(toYAML(basicPipeline), readFileSync('./test/basicPipeline.yaml', 'utf-8'));
+  equal(toYAML(basicPipeline), readFileSync('./test/basicPipeline.yaml', 'utf8'));
 });

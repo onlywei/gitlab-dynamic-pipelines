@@ -1,7 +1,7 @@
 import type { IncludeInput } from './Input.ts';
 import type { Rule } from './Rule.ts';
 
-type ArtifactInclude = {
+interface ArtifactInclude {
   artifact: string;
   component?: never;
   file?: never;
@@ -12,9 +12,9 @@ type ArtifactInclude = {
   ref?: never;
   remote?: never;
   template?: never;
-};
+}
 
-type LocalInclude = {
+interface LocalInclude {
   artifact?: never;
   component?: never;
   file?: never;
@@ -25,9 +25,9 @@ type LocalInclude = {
   ref?: never;
   remote?: never;
   template?: never;
-};
+}
 
-type ComponentInclude = {
+interface ComponentInclude {
   artifact?: never;
   component: string;
   file?: never;
@@ -38,9 +38,9 @@ type ComponentInclude = {
   ref?: never;
   remote?: never;
   template?: never;
-};
+}
 
-type ProjectInclude = {
+interface ProjectInclude {
   artifact?: never;
   component?: never;
   file: string | string[];
@@ -51,9 +51,9 @@ type ProjectInclude = {
   ref?: string;
   remote?: never;
   template?: never;
-};
+}
 
-type RemoteInclude = {
+interface RemoteInclude {
   artifact?: never;
   component?: never;
   file?: never;
@@ -64,9 +64,9 @@ type RemoteInclude = {
   ref?: never;
   remote?: string;
   template?: never;
-};
+}
 
-type TemplateInclude = {
+interface TemplateInclude {
   artifact?: never;
   component?: never;
   file?: never;
@@ -77,7 +77,7 @@ type TemplateInclude = {
   ref?: never;
   remote?: never;
   template?: string;
-};
+}
 
 export type PipelineRef = {
   rules?: Pick<Rule, 'if' | 'exists' | 'changes'>[];

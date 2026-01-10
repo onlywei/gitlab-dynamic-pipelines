@@ -13,5 +13,5 @@ test('minimal pipeline', () => {
     jobs: {},
   };
 
-  equal(toYAML(minimalPipeline), readFileSync('./test/minimalPipeline.yaml', 'utf-8'));
+  equal(toYAML(minimalPipeline), readFileSync('./test/minimalPipeline.yaml', 'utf8'));
 });

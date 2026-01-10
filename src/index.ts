@@ -11,24 +11,24 @@ export type { Job } from './Job.ts';
 export type { JobNeed } from './Need.ts';
 export { ReferenceTag } from './referenceTag.ts';
 
-export type YAMLHeader = {
+export interface YAMLHeader {
   spec?: { inputs?: Record<string, ComponentInputSpec> };
-};
+}
 
-export type GlobalKeywords = {
+export interface GlobalKeywords {
   default?: JobDefaults;
   include?: string | PipelineRef[];
   pages?: Job & { publish?: string; path_prefix?: string };
   stages?: string[];
   variables?: GitlabCICDVariables;
   workflow?: Workflow;
-};
+}
 
-export type Pipeline = {
+export interface Pipeline {
   header?: YAMLHeader;
   globalKeywords: GlobalKeywords;
   jobs: Record<string, Job>;
-};
+}
 
 export function toYAML(pipeline: Pipeline) {
   const stringifyOptions = { customTags: [referenceTag] };

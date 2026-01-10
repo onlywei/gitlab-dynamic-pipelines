@@ -6,10 +6,6 @@ import { type Pipeline, toYAML } from '../dist/index.js';
 test('pipeline with include', () => {
   const pipelineWithInclude: Pipeline = {
     globalKeywords: {
-      workflow: {
-        name: 'Pipeline w/ Include',
-      },
-      stages: ['test', 'build'],
       include: [
         {
           project: 'somewhere',
@@ -31,14 +27,18 @@ test('pipeline with include', () => {
           ],
         },
       ],
+      stages: ['test', 'build'],
+      workflow: {
+        name: 'Pipeline w/ Include',
+      },
     },
     jobs: {
       job1: {
-        stage: 'test',
         script: ['echo "it works!"'],
+        stage: 'test',
       },
     },
   };
 
-  equal(toYAML(pipelineWithInclude), readFileSync('./test/pipelineWithInclude.yaml', 'utf-8'));
+  equal(toYAML(pipelineWithInclude), readFileSync('./test/pipelineWithInclude.yaml', 'utf8'));
 });

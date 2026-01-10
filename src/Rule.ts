@@ -1,7 +1,7 @@
 import type { JobNeed } from './Need.ts';
 import type { GitlabCICDVariables } from './Variables.ts';
 
-export type Rule = {
+export interface Rule {
   allow_failure?: boolean;
   changes?:
     | string[]
@@ -21,4 +21,4 @@ export type Rule = {
   needs?: JobNeed[];
   variables?: GitlabCICDVariables;
   when?: 'on_success' | 'on_failure' | 'never' | 'always' | 'manual' | 'delayed';
-};
+}
