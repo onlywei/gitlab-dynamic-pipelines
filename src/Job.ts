@@ -6,7 +6,7 @@ import type { Rule } from './Rule.ts';
 import type { ReferenceTag } from './referenceTag.ts';
 import type { GitlabCICDVariables } from './Variables.ts';
 
-type JobCache = {
+interface JobCache {
   fallback_keys?: string[];
   key?: string | { files: string[]; prefix?: string };
   paths: string[];
@@ -14,9 +14,9 @@ type JobCache = {
   unprotect?: boolean;
   untracked?: boolean;
   when?: 'on_success' | 'on_failure' | 'always';
-};
+}
 
-type JobEnvironment = {
+interface JobEnvironment {
   action?: 'start' | 'prepare' | 'stop' | 'verify' | 'access';
   auto_stop_in?: string;
   deployment_tier: 'production' | 'staging' | 'testing' | 'development' | 'other';
@@ -24,37 +24,37 @@ type JobEnvironment = {
   name: string;
   on_stop?: string;
   url?: string;
-};
+}
 
-type JobHooks = {
+interface JobHooks {
   pre_get_sources_script?: string | string[];
-};
+}
 
-type JobIdToken = {
+interface JobIdToken {
   aud: string;
-};
+}
 
-type JobInheritConfig = {
+interface JobInheritConfig {
   default?: boolean | string[];
   variables?: boolean | string[];
-};
+}
 
-type JobImage = {
+interface JobImage {
   name: string;
   command?: string | string[];
   docker?: { platform?: string; user: string };
   entrypoint?: string | string[];
   pull_policy?: 'always' | 'if-not-present' | 'never';
-};
+}
 
-type ReleaseLinkAsset = {
+interface ReleaseLinkAsset {
   name: string;
   url: string;
   filepath?: string;
   link_type?: string;
-};
+}
 
-type JobReleaseConfig = {
+interface JobReleaseConfig {
   tag_name: string;
   tag_message?: string;
   name?: string;
@@ -63,7 +63,7 @@ type JobReleaseConfig = {
   milestones?: string;
   released_at?: string;
   assets?: { links?: ReleaseLinkAsset[] };
-};
+}
 
 type JobRetryConfig =
   | 0
@@ -88,7 +88,7 @@ type JobRetryConfig =
       exit_codes?: number | number[];
     };
 
-type JobSecret = {
+interface JobSecret {
   vault?:
     | string
     | {
@@ -106,7 +106,7 @@ type JobSecret = {
   };
   file?: boolean;
   token?: string;
-};
+}
 
 type JobService = JobImage & {
   alias?: string;
@@ -128,7 +128,7 @@ type TriggerConfig = (
 
 type Script = string | ReferenceTag | (string | ReferenceTag)[];
 
-export type Job = {
+export interface Job {
   after_script?: Script;
   allow_failure?: boolean | { exit_codes: number | number[] };
   artifacts?: ArtifactsConfig;
@@ -160,7 +160,7 @@ export type Job = {
   trigger?: string | TriggerConfig;
   variables?: GitlabCICDVariables;
   when?: 'on_success' | 'on_failure' | 'never' | 'always' | 'manual' | 'delayed';
-};
+}
 
 export type JobDefaults = Pick<
   Job,

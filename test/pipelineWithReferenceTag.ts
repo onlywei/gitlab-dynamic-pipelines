@@ -1,7 +1,7 @@
 import { equal } from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
-import { type Pipeline, ReferenceTag, toYAML } from '../dist/index.js';
+import { type Pipeline, ReferenceTag, toYAML } from '../src/index.ts';
 
 test('reference tag', () => {
   const pipelineWithInclude: Pipeline = {
@@ -24,5 +24,5 @@ test('reference tag', () => {
     },
   };
 
-  equal(toYAML(pipelineWithInclude), readFileSync('./test/pipelineWithReferenceTag.yaml', 'utf-8'));
+  equal(toYAML(pipelineWithInclude), readFileSync('./test/pipelineWithReferenceTag.yaml', 'utf8'));
 });

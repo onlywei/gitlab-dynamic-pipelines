@@ -1,7 +1,7 @@
 import { equal } from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
-import { type Pipeline, toYAML } from '../dist/index.js';
+import { type Pipeline, toYAML } from '../src/index.ts';
 
 test('dynamic child pipeline', () => {
   const pipelineWithDynamicChildPipeline: Pipeline = {
@@ -50,6 +50,6 @@ test('dynamic child pipeline', () => {
 
   equal(
     toYAML(pipelineWithDynamicChildPipeline),
-    readFileSync('./test/pipelineWithDynamicChildPipeline.yaml', 'utf-8'),
+    readFileSync('./test/pipelineWithDynamicChildPipeline.yaml', 'utf8'),
   );
 });
