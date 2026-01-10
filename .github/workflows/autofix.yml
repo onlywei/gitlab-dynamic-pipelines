@@ -1,0 +1,43 @@
+name: autofix.ci # needed to securely identify the workflow
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  autofix:
+    name: autofix
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' || !github.event.pull_request.draft }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+
+      - uses: pnpm/action-setup@v4
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Fix formatting
+        run: pnpm format
+
+      - name: Fix lint issues
+        run: pnpm lint:fix
+
+      - name: Apply fixes
+        uses: autofix-ci/action@ff86a557419858bb967097bfc916833f5647fa8c
+        with:
+          commit-message: 'ci: apply automated fixes'
