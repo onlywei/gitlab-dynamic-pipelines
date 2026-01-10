@@ -1,5 +1,11 @@
 # gitlab-dynamic-pipelines
 
+## 2.0.0
+
+### Major Changes
+
+- 09c6b08: Use oxlint + oxfmt to lint:fix and format this codebase
+
 ## 1.1.0
 
 ### Minor Changes
