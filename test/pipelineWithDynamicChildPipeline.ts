@@ -13,22 +13,22 @@ test('dynamic child pipeline', () => {
     },
     jobs: {
       setup: {
+        stage: 'setup',
+        script: ['echo Script to generate a child pipeline here'],
         artifacts: {
           paths: ['$CI_PROJECT_DIR/pipeline.yml'],
         },
-        script: ['echo Script to generate a child pipeline here'],
-        stage: 'setup',
       },
       trigger_pipeline: {
-        inherit: {
-          variables: true,
-        },
         needs: [
           {
             job: 'setup',
             artifacts: true,
           },
         ],
+        inherit: {
+          variables: true,
+        },
         trigger: {
           include: [
             {

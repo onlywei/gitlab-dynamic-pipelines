@@ -6,6 +6,10 @@ import { type Pipeline, toYAML } from '../src/index.ts';
 test('pipeline with include', () => {
   const pipelineWithInclude: Pipeline = {
     globalKeywords: {
+      workflow: {
+        name: 'Pipeline w/ Include',
+      },
+      stages: ['test', 'build'],
       include: [
         {
           project: 'somewhere',
@@ -27,15 +31,11 @@ test('pipeline with include', () => {
           ],
         },
       ],
-      stages: ['test', 'build'],
-      workflow: {
-        name: 'Pipeline w/ Include',
-      },
     },
     jobs: {
       job1: {
-        script: ['echo "it works!"'],
         stage: 'test',
+        script: ['echo "it works!"'],
       },
     },
   };

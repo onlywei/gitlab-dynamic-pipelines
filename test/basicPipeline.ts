@@ -6,22 +6,22 @@ import { type Pipeline, toYAML } from '../src/index.ts';
 test('basic pipeline', () => {
   const basicPipeline: Pipeline = {
     globalKeywords: {
-      default: {
-        image: 'node:20.12.2',
-      },
-      stages: ['test', 'build'],
       workflow: {
         name: 'Basic Pipeline',
+      },
+      stages: ['test', 'build'],
+      default: {
+        image: 'node:20.12.2',
       },
     },
     jobs: {
       job1: {
-        script: ['echo "it works!"'],
         stage: 'test',
+        script: ['echo "it works!"'],
       },
       job2: {
-        script: ['echo "it has been built!"'],
         stage: 'build',
+        script: ['echo "it has been built!"'],
       },
     },
   };

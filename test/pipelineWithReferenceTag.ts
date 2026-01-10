@@ -6,15 +6,15 @@ import { type Pipeline, ReferenceTag, toYAML } from '../src/index.ts';
 test('reference tag', () => {
   const pipelineWithInclude: Pipeline = {
     globalKeywords: {
+      workflow: {
+        name: 'Pipeline w/ Reference Tag',
+      },
       include: [
         {
           component: 'some/awesome-component/',
           inputs: { MY_INPUT: '$MY_INPUT' },
         },
       ],
-      workflow: {
-        name: 'Pipeline w/ Reference Tag',
-      },
     },
     jobs: {
       job1: {
