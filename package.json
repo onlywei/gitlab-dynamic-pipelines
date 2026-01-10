@@ -25,7 +25,7 @@
     "lint": "oxlint .",
     "lint:fix": "oxlint --fix .",
     "prepublishOnly": "pnpm build",
-    "test": "pnpm build && node --test"
+    "test": "node --test"
   },
   "dependencies": {
     "yaml": "^2.8.2"

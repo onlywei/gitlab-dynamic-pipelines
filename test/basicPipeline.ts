@@ -1,7 +1,7 @@
 import { equal } from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
-import { type Pipeline, toYAML } from '../dist/index.js';
+import { type Pipeline, toYAML } from '../src/index.ts';
 
 test('basic pipeline', () => {
   const basicPipeline: Pipeline = {
