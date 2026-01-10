@@ -1,5 +1,11 @@
 # gitlab-dynamic-pipelines
 
+## 1.1.0
+
+### Minor Changes
+
+- bff71d8: Add support to use artifacts within job includes (dynamic child pipelines)
+
 ## 1.0.0
 
 ### Major Changes
