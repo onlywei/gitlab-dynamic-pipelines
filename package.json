@@ -28,7 +28,6 @@
   },
   "homepage": "https://github.com/onlywei/gitlab-dynamic-pipelines#readme",
   "devDependencies": {
-    "@biomejs/biome": "^2.3.10",
     "@changesets/cli": "^2.29.8",
     "@types/node": "^24.10.4",
     "typescript": "^5.9.3"
