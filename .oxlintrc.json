@@ -32,8 +32,13 @@
     "oxc/no-accumulating-spread": "error",
     "radix": "error",
     "sort-imports": ["error", { "ignoreDeclarationSort": true }],
+    "sort-keys": "off",
     "typescript/no-explicit-any": "error",
     "typescript/no-require-imports": "error",
+    "unicorn/filename-case": [
+      "error",
+      { "cases": { "camelCase": true, "kebabCase": false, "pascalCase": true, "snakeCase": false } }
+    ],
     "unicorn/no-null": "off",
     "unicorn/prefer-array-flat-map": "error",
     "unicorn/prefer-set-has": "error"
