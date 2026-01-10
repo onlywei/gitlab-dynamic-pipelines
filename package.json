@@ -2,10 +2,22 @@
   "name": "gitlab-dynamic-pipelines",
   "version": "1.1.0",
   "description": "Create dynamic Gitlab CI/CD pipelines using TypeScript with types",
+  "keywords": [
+    "gitlab"
+  ],
+  "homepage": "https://github.com/onlywei/gitlab-dynamic-pipelines#readme",
+  "bugs": {
+    "url": "https://github.com/onlywei/gitlab-dynamic-pipelines/issues"
+  },
+  "license": "MIT",
+  "author": "Wei Wang <wei@fastmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onlywei/gitlab-dynamic-pipelines.git"
+  },
+  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "type": "module",
-  "packageManager": "pnpm@10.26.2+sha512.0e308ff2005fc7410366f154f625f6631ab2b16b1d2e70238444dd6ae9d630a8482d92a451144debc492416896ed16f7b114a86ec68b8404b2443869e68ffda6",
   "scripts": {
     "build": "rm -rf dist && tsc",
     "format": "oxfmt --write .",
@@ -15,19 +27,9 @@
     "prepublishOnly": "pnpm run ci",
     "test": "pnpm run build && node --test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/onlywei/gitlab-dynamic-pipelines.git"
+  "dependencies": {
+    "yaml": "^2.8.2"
   },
-  "keywords": [
-    "gitlab"
-  ],
-  "author": "Wei Wang <wei@fastmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/onlywei/gitlab-dynamic-pipelines/issues"
-  },
-  "homepage": "https://github.com/onlywei/gitlab-dynamic-pipelines#readme",
   "devDependencies": {
     "@changesets/cli": "^2.29.8",
     "@types/node": "^24.10.4",
@@ -35,7 +37,5 @@
     "oxlint": "^1.38.0",
     "typescript": "^5.9.3"
   },
-  "dependencies": {
-    "yaml": "^2.8.2"
-  }
+  "packageManager": "pnpm@10.26.2+sha512.0e308ff2005fc7410366f154f625f6631ab2b16b1d2e70238444dd6ae9d630a8482d92a451144debc492416896ed16f7b114a86ec68b8404b2443869e68ffda6"
 }
