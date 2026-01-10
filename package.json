@@ -24,8 +24,8 @@
     "format:check": "oxfmt --check .",
     "lint": "oxlint .",
     "lint:fix": "oxlint --fix .",
-    "prepublishOnly": "pnpm run ci",
-    "test": "pnpm run build && node --test"
+    "prepublishOnly": "pnpm build",
+    "test": "pnpm build && node --test"
   },
   "dependencies": {
     "yaml": "^2.8.2"
