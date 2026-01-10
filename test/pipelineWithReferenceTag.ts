@@ -7,7 +7,7 @@ test('reference tag', () => {
   const pipelineWithInclude: Pipeline = {
     globalKeywords: {
       workflow: {
-        name: 'Pipeline w/ Reference Tag',
+        name: "Pipeline w/ Reference Tag",
       },
       include: [
         {
