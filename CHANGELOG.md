@@ -1,5 +1,11 @@
 # gitlab-dynamic-pipelines
 
+## 1.1.2
+
+### Patch Changes
+
+- a789777: Add sideEffects: false to package.json to enable better tree-shaking in bundlers
+
 ## 1.1.1
 
 ### Patch Changes
