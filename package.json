@@ -26,7 +26,7 @@
     "lint": "oxlint .",
     "lint:fix": "oxlint --fix .",
     "prepublishOnly": "pnpm build",
-    "test": "node --test"
+    "test": "tsc -p tsconfig.test.json && node --test"
   },
   "dependencies": {
     "yaml": "^2.8.2"
