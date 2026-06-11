@@ -119,7 +119,7 @@ type TriggerConfig = (
     }
   | {
       project: string;
-      branch: string;
+      branch?: string;
     }
 ) & {
   forward?: { yaml_variables?: boolean; pipeline_variables?: boolean };
