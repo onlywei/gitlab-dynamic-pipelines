@@ -1,5 +1,11 @@
 # gitlab-dynamic-pipelines
 
+## 1.1.3
+
+### Patch Changes
+
+- 1baa133: Allow trigger branch to be optional
+
 ## 1.1.2
 
 ### Patch Changes
